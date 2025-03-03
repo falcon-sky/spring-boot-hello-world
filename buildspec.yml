@@ -6,6 +6,9 @@ phases:
       # Log in to Amazon ECR
       - echo Logging in to Amazon ECR...
       - aws --version
+      - DOCKER_USERNAME=falcon007
+      - DOCKER_PASSWORD=falcon@007
+      - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
       - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 975050323630.dkr.ecr.us-east-1.amazonaws.com
       - REPOSITORY_URI=975050323630.dkr.ecr.us-east-1.amazonaws.com/rama-hello-app
       - IMAGE_TAG=build-$(echo $CODEBUILD_BUILD_ID | awk -F":" '{print $2}')
@@ -15,6 +18,8 @@ phases:
       - echo building the Jar file
       - mvn clean install
       - echo Building the Docker image...
+      - echo Pulling Docker images...
+      - docker pull eclipse-temurin:17-jdk-alpine
       - docker build -t $REPOSITORY_URI:latest .
       - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$IMAGE_TAG
 
