@@ -9,10 +9,10 @@ Parameters:
     Default: rama
 Resources:
   # ECR Repository to store the Docker image
-  SpringBootECRRepository:
-    Type: AWS::ECR::Repository
-    Properties:
-      RepositoryName: springboot-hello-world
+#  SpringBootECRRepository:
+#    Type: AWS::ECR::Repository
+#    Properties:
+#      RepositoryName: springboot-hello-world
   # Log Group for cluster service log
   TheLogGroup:
     Type: AWS::Logs::LogGroup
