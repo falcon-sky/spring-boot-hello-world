@@ -9,8 +9,8 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.hello.app</groupId>
-	<artifactId>sprin-gboot-hello-world</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>spring-boot-hello-world</artifactId>
+	<version>1.0.0</version>
 	<name>spring-boot-hello-world</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
